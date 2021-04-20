@@ -8,14 +8,14 @@ namespace Clase2Practica
 {
     class EjercicioLeerJson
     {
-        public static void Ejecutar()
+        public static void Ejecutar(string nombreArchivo)
         {
             //buscar archivo json
             //Console.WriteLine("El directorio actual es:");
             //string directorioDelJson = $@"..\.\..\..\{Directory.GetCurrentDirectory()}";
 
             //para archivos grandes, se debe leer de a bloques utilizando un while
-            string jsonText = File.ReadAllText(@"..\.\..\..\..\ordenes.json");
+            string jsonText = File.ReadAllText(@$"..\.\..\..\..\{nombreArchivo}.json");
 
             //parsear json
             JsonRoot jsonObj = JsonConvert.DeserializeObject<JsonRoot>(jsonText);
