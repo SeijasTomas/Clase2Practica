@@ -10,14 +10,14 @@ namespace Clase2Practica
     {
         static void Main(string[] args)
         {
-            EjercicioLeerJson.Ejecutar("ordenes");
-
-            EjercicioEscribirJson.Ejecutar(GenerarListaOrdenes(),"nuevasOrdenes");
+            EjercicioLeerJson.Ejecutar("nuevasOrdenes");
+            EjercicioEscribirJson.Ejecutar(GenerarOrdenes(),"nuevasOrdenes");
 
         }
 
-        private static List<Orden> GenerarListaOrdenes()
+        private static JsonRoot GenerarOrdenes()
         {
+            JsonRoot jsonObj = new JsonRoot();
             Orden orden1 = new Orden();
             Orden orden2 = new Orden();
 
@@ -36,7 +36,9 @@ namespace Clase2Practica
             ordenes.Add(orden1);
             ordenes.Add(orden2);
 
-            return ordenes;
+            jsonObj.ordenes = ordenes;
+
+            return jsonObj;
 
         }
     }

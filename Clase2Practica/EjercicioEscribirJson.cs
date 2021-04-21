@@ -10,11 +10,9 @@ namespace Clase2Practica
 {
     class EjercicioEscribirJson
     {
-        public static void Ejecutar(List<Orden> ordenes, string nombreArchivo)
+        public static void Ejecutar(JsonRoot jsonObj, string nombreArchivo)
         {
-            string jsonText = "{\"ordenes\":";
-            jsonText += JsonSerializer.Serialize(ordenes);
-            jsonText += "}";
+            string jsonText = JsonSerializer.Serialize(jsonObj);
 
             File.WriteAllText(@$"..\.\..\..\..\{nombreArchivo}.json" , jsonText);
         }
